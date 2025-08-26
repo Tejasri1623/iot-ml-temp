@@ -11,16 +11,17 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "AI Model Server is running"
+    return ('AI Model Server is running')
 
 @app.route('/predict', methods=['GET'])
 def predict():
     temp = request.args.get('temp')
     temp = float(temp)
-    data = np.array([[temp]])
+    data = [[temp]]s
     result = ai.predict(data)
     result = result[0]
     return (result)
 
 if (__name__ == "__main__"):
+
     app.run(host='0.0.0.0',port=5000,debug=True)
