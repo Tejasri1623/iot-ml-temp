@@ -3,12 +3,11 @@ from main import generateAI
 
 
 import pickle
-import numpy as np
 
 generateAI()
 ai = pickle.load(open('model.pkl', 'rb'))
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 @app.route('/')
 def home():
@@ -23,5 +22,5 @@ def predict():
     result = result[0]
     return (result)
 
-if (_name_ == "_main_"):
+if (__name__ == "__main__"):
     app.run(host='0.0.0.0',port=5000,debug=True)
